@@ -112,12 +112,6 @@
 	  <Compile Update="Pages and descriptions\ChallengesPage.xaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages and descriptions\CreditsPage.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages and descriptions\CryptoConnectPage.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
 	  <Compile Update="Pages and descriptions\DevelopmentInfoThumbnail.xaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
@@ -313,12 +307,6 @@
 	  <MauiXaml Update="Pages and descriptions\ChallengesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages and descriptions\CreditsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages and descriptions\CryptoConnectPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages and descriptions\DevelopmentInfoThumbnail.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -346,9 +334,6 @@
 	  <MauiXaml Update="Pages and descriptions\Header.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages and descriptions\LinkLabel.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages and descriptions\ObjectDescription.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -359,12 +344,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages and descriptions\TutorialPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages and descriptions\WalletDownloadThumbnail.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages and descriptions\WalletPreview.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Particles\BlackholeParticles.xaml">
@@ -444,14 +423,6 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Nethereum.Web3" Version="4.9.0" />
-    <PackageReference Include="Solnet.Extensions" Version="6.1.0" />
-    <PackageReference Include="Solnet.KeyStore" Version="6.1.0" />
-    <PackageReference Include="Solnet.Programs" Version="6.1.0" />
-    <PackageReference Include="Solnet.Rpc" Version="6.1.0" />
-    <PackageReference Include="Solnet.Wallet" Version="6.1.0" />
-    <PackageReference Include="WalletConnect.Desktop" Version="1.7.2" />
-    <PackageReference Include="WalletConnect.NEthereum" Version="1.7.2" />
     <PackageReference Include="CommunityToolkit.Maui" Version="13.0.0" />
   </ItemGroup>
 

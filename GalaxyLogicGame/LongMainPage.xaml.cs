@@ -27,7 +27,7 @@ namespace GalaxyLogicGame.Mobile
         public IGameBG gameBG;
         private bool clicked = true;
         //private TutorialGameplay tutorial;
-        private View[] buttonsArray = new View[7];
+        private View[] buttonsArray = new View[6];
         public LongMainPage(StarsParticlesLayout stars)
         {
 
@@ -56,7 +56,6 @@ namespace GalaxyLogicGame.Mobile
             buttonsArray[3] = aboutEventsButton;
             buttonsArray[4] = objectsDescriptionButton;
             buttonsArray[5] = tutorialButton;
-            buttonsArray[6] = creditsButton;
 
             // Set animation
 
@@ -264,16 +263,6 @@ namespace GalaxyLogicGame.Mobile
             starsLayout.Children.Remove(this.stars);
             this.stars = new StarsParticlesLayout();
             starsLayout.Children.Add(this.stars);
-        }
-
-        private async void OnCreditsClicked(object sender, EventArgs e)
-        {
-            if (clicked)
-            {
-                clicked = false;
-                await TransitionOut(new CreditsPage());
-                clicked = true;
-            }
         }
 
         private async void OnPlayGameJamClicked(object sender, EventArgs e)

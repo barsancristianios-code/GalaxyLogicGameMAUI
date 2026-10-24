@@ -88,14 +88,6 @@
                                     <TapGestureRecognizer Tapped="OnTutorialClicked"/>
                                 </Label.GestureRecognizers>
                             </Label>
-                            <BoxView HeightRequest="5"/>
-                            <Label x:Name="creditsButton"   
-                        Style="{StaticResource Key=mainPageLabel}"
-                            Text="Credits">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnCreditsClicked"/>
-                                </Label.GestureRecognizers>
-                            </Label>
 
                             <BoxView HeightRequest="30"/>
 

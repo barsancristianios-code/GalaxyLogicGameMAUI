@@ -56,13 +56,8 @@
 	  <None Remove="Resources\Images\AtomicBombBG.png" />
 	  <None Remove="Resources\Images\AtomicBombFill.png" />
 	  <None Remove="Resources\Images\AtomicBombShiny.png" />
-	  <None Remove="Resources\Images\checkingnfts.png" />
-	  <None Remove="Resources\Images\checkyourwallet.png" />
-	  <None Remove="Resources\Images\externallink.png" />
 	  <None Remove="Resources\Images\gamejambackground.png" />
 	  <None Remove="Resources\Images\happygirl.gif" />
-	  <None Remove="Resources\Images\loadingqrcode.png" />
-	  <None Remove="Resources\Images\metamask.png" />
 	  <None Remove="Resources\Images\nointernet.png" />
 	  <None Remove="Resources\Images\playgamejam.png" />
 	  <None Remove="Resources\Images\randomanimegirl.png" />
@@ -70,9 +65,6 @@
 	  <None Remove="Resources\Images\supernovaflashy.png" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <PackageReference Include="WalletConnect.Desktop" Version="1.7.2" />
-	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\GalaxyLogicGame\GalaxyLogicGame.csproj" />

@@ -36,7 +36,7 @@ namespace GalaxyLogicGame.Powerups
             // add details page maybe
         }
 
-        public static bool Equiped { get => Preferences.Get(EthFunctions.GetEthereumContractAddress, false); /*Preferences.Get("org.tizen.myApp.challenge11", false);*/ set { Preferences.Set("atomicBombEquiped", value); } } // change to false
+        public static bool Equiped { get => Preferences.Get("atomicBombEquiped", false); set { Preferences.Set("atomicBombEquiped", value); } } // change to false
         public static bool Owned { get => Preferences.Get("atomicBombOwned", true); set { Preferences.Set("atomicBombOwned", value); } } // change to false
     }
 }

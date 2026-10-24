@@ -161,37 +161,6 @@ namespace GalaxyLogicGame.Mobile
             }
         }
 
-        /*private async void OnConnectCryptoClicked(object sender, EventArgs e)
-        {
-            //SolanaConnectPage page = new SolanaConnectPage(wallet);
-            CryptoConnectPage page = new CryptoConnectPage(wallet);
-
-            DisplayInfo display = DeviceDisplay.MainDisplayInfo;
-            double ratio = display.Height / display.Width > 1 ? display.Height / display.Width : 1;
-
-            await Task.WhenAll(
-                this.stars.TransitionUpIn(),
-
-                mainLayout.TranslateTo(0, -360 * ratio, 500, Easing.SinIn),
-
-                //wallpaper.TranslateTo(0, -180, 500, Easing.SinIn),
-                wallpaper.FadeTo(0, 500, Easing.SinIn));
-
-            starsLayout.Children.Remove(this.stars);
-            page.AssignStars(stars);
-            await Navigation.PushAsync((Page)page, false);
-            await page.TransitionIn();
-
-            mainLayout.TranslationX = 0;
-            mainLayout.TranslationY = 0;
-            wallpaper.Opacity = 1;
-
-            this.stars = new StarsParticlesLayout();
-            starsLayout.Children.Add(this.stars);
-
-            await page.Connect();
-        } */
-
         public int Highscore { get { return Preferences.Get(HIGHSCORE, 0); } set { Preferences.Set(HIGHSCORE, value); highscoreLabel.Text = "Highscore: " + value; } }
         public string HighscoreLabel { get { return highscoreLabel.Text; } set { highscoreLabel.Text = value; } }
 
