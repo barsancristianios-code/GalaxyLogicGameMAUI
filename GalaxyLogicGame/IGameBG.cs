@@ -17,6 +17,7 @@ namespace GalaxyLogicGame
         CasualGame Game { get; }
         void ResetTime();
         void UpdateScore();
+        void ShowCombo(int combo);
         void GameOver();
         Task LostScreenAnimation();
         void StartLoop();

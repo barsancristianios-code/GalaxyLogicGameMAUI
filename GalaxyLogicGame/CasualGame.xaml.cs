@@ -1,4 +1,5 @@
-﻿using GalaxyLogicGame.Events;
+﻿using GalaxyLogicGame.Services;
+using GalaxyLogicGame.Events;
 using GalaxyLogicGame.Planet_objects;
 using System.Collections;
 using GalaxyLogicGame.Powerups;
@@ -258,6 +259,7 @@ namespace GalaxyLogicGame
 
         public virtual async Task AddingPlanet(int index)
         {
+            GameFeedback.PlanetPlaced();
             if (middleParticle.IsPlaying)
             {
                 middleParticle.Stop(delay);
@@ -482,6 +484,7 @@ namespace GalaxyLogicGame
 
                     /*
                     await explodingStar.ScaleToAsync(0, (uint)delay); ///
+                    GameFeedback.Explosion();
                     SupernovaExplosion supernova = new SupernovaExplosion();
                     supernova.TranslationX = supernovaPosition.X; 
                     supernova.TranslationY = supernovaPosition.Y;
@@ -576,6 +579,8 @@ namespace GalaxyLogicGame
                                     }
 
                                     Score += (Functions.GetAtomValue((PlanetBase)atoms[low]) + dreamLow) * 2 + atomBonus * atomBonus * 5;
+                                    GameFeedback.Merged(atomBonus + 1);
+                                    BG?.ShowCombo(atomBonus + 1);
 
                                     repeatTwice = true;
                                     double x = ((PlanetBase)atoms[i]).TranslationX;

@@ -1,4 +1,6 @@
-﻿using GalaxyLogicGame.Events.EventChallengesBoards;
+﻿using Microsoft.Maui.Layouts;
+using GalaxyLogicGame.Services;
+using GalaxyLogicGame.Events.EventChallengesBoards;
 using GalaxyLogicGame.Particles;
 using GalaxyLogicGame.Planet_objects;
 using GalaxyLogicGame.Powerups;
@@ -149,6 +151,9 @@ namespace GalaxyLogicGame.Mobile
                 lostScreen.IsVisible = true;
                 lostScreenText.IsVisible = true;
                 lostScreenButton.IsVisible = true;
+
+                GameFeedback.GameOver();
+                if (!isTutorial) PlayerStats.RecordGame(game.Score, game.Heighest);
 
                 await Task.WhenAll(
                     lostScreen.FadeToAsync(1, 500),
@@ -379,7 +384,47 @@ namespace GalaxyLogicGame.Mobile
         }
         public void UpdateScore()
         {
-            scoreLabel.Text = game.Score.ToString();
+            string text = game.Score.ToString();
+            bool increased = scoreLabel.Text != text && game.Score > 0;
+            scoreLabel.Text = text;
+            if (increased) PopScore();
+        }
+
+        private async void PopScore()
+        {
+            scoreLabel.CancelAnimations();
+            await scoreLabel.ScaleToAsync(1.25, 90, Easing.CubicOut);
+            await scoreLabel.ScaleToAsync(1, 260, Easing.SpringOut);
+        }
+
+        /// <summary>Floating "COMBO xN" text for chains of two or more merges.</summary>
+        public async void ShowCombo(int combo)
+        {
+            if (combo < 2) return;
+
+            Color[] colors = { Color.FromArgb("45ffed"), Color.FromArgb("7cff6b"), Color.FromArgb("ffd84a"), Color.FromArgb("ff8a3d"), Color.FromArgb("ff4fd8") };
+            Label label = new Label
+            {
+                Text = combo >= 5 ? "INCREDIBLE x" + combo : "COMBO x" + combo,
+                FontFamily = "LogoFont",
+                FontSize = 26 + Math.Min(combo, 6) * 2,
+                TextColor = colors[Math.Min(combo, colors.Length + 1) - 2],
+                HorizontalTextAlignment = TextAlignment.Center,
+                Opacity = 0,
+                Scale = 0.4,
+                InputTransparent = true,
+            };
+            AbsoluteLayout.SetLayoutBounds(label, new Rect(0.5, 0.5, 360, 60));
+            AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.PositionProportional);
+            mainLayout.Children.Add(label);
+
+            await Task.WhenAll(
+                label.FadeToAsync(1, 120),
+                label.ScaleToAsync(1, 300, Easing.SpringOut));
+            await Task.WhenAll(
+                label.TranslateToAsync(0, -90, 700, Easing.CubicOut),
+                label.FadeToAsync(0, 700, Easing.CubicIn));
+            mainLayout.Children.Remove(label);
         }
         public async Task NavigateToOtherTutorial(TutorialGameBase game)
         {

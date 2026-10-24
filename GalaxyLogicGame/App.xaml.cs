@@ -21,7 +21,7 @@ namespace GalaxyLogicGame.Mobile
 
         protected override Window CreateWindow(IActivationState activationState)
         {
-            return new Window(new NavigationPage(new MainPage()));
+            return new Window(new NavigationPage(new GalaxyLogicGame.Menu.LoadingPage()));
         }
 
         protected override void OnStart()
@@ -32,12 +32,12 @@ namespace GalaxyLogicGame.Mobile
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
+            GalaxyLogicGame.Services.AudioService.PauseMusic();
         }
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
+            GalaxyLogicGame.Services.AudioService.StartMusic();
         }
     }
 }

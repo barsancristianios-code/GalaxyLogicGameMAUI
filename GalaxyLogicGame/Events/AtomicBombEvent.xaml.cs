@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaxyLogicGame.Services;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -120,6 +121,7 @@ namespace GalaxyLogicGame.Events
 
 
                 // A special animation
+                GameFeedback.Explosion();
                 PlanetDetonationParticle particle = new PlanetDetonationParticle();
                 particle.TranslationX = ((PlanetBase)game.Atoms[index]).TranslationX;
                 particle.TranslationY = ((PlanetBase)game.Atoms[index]).TranslationY;
