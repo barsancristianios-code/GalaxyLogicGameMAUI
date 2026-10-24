@@ -15,7 +15,7 @@
            x:Name="title"
            FontAttributes="Bold"
            TextColor="White"
-           FontFamily="SamsungOne"
+           FontFamily="BodyFont"
            FontSize="24"/>
         <Image Source="challengecompleted.png" TranslationX="200"
            x:Name="completedSticker"/>

@@ -12,8 +12,9 @@ namespace GalaxyLogicGameWearOS
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("SamsungOne700.ttf", "SamsungOne");
-                    fonts.AddFont("bignoodletitling.ttf", "BigNoodleTitling");
+                    fonts.AddFont("Rajdhani-Bold.ttf", "TitleFont");
+				fonts.AddFont("Rajdhani-SemiBold.ttf", "BodyFont");
+				fonts.AddFont("Audiowide-Regular.ttf", "LogoFont");
                 })
                 .UseMauiCommunityToolkit(); ;
 

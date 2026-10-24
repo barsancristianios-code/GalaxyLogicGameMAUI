@@ -17,11 +17,11 @@
                 <AbsoluteLayout x:Name="buttonLayout" AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 0.8" AbsoluteLayout.LayoutFlags="All" >
                     <Image IsVisible="false" x:Name="astronaut" Source="astronaut.png" AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"  TranslationX="210" TranslationY="60"/>
                     
-                    <Label x:Name="highscoreLabel" AbsoluteLayout.LayoutBounds=".5, .3, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" FontFamily="BigNoodleTitling"
+                    <Label x:Name="highscoreLabel" AbsoluteLayout.LayoutBounds=".5, .3, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" FontFamily="TitleFont"
                            Text=".." FontSize="20" TextColor="#dddddd"/>
 
                     <Label AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"
-                            Text="Play" FontSize="70"  FontFamily="bignoodletitling" TextColor="White" FontAttributes="Bold" >
+                            Text="Play" FontSize="70"  FontFamily="TitleFont" TextColor="White" FontAttributes="Bold" >
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnPlayClicked"/>
                         </Label.GestureRecognizers>
@@ -29,7 +29,7 @@
 
                     <Label x:Name="showMoreButton"
                            AbsoluteLayout.LayoutBounds="0.5, 0.95, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"
-                           Text="Show more" FontFamily="bignoodletitling" FontSize="20" TextColor="#dddddd">
+                           Text="Show more" FontFamily="TitleFont" FontSize="20" TextColor="#dddddd">
                     </Label>
                     <BoxView AbsoluteLayout.LayoutBounds="0.5, 1, 1, 0.25" AbsoluteLayout.LayoutFlags="All"
                              BackgroundColor="#00000000" CornerRadius="30">
@@ -47,13 +47,13 @@
                 <Image AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 1" AbsoluteLayout.LayoutFlags="All" Source="mainAstronaut.png" Aspect="AspectFit" Scale="{OnPlatform UWP=0.7}"/>
                 <StackLayout AbsoluteLayout.LayoutBounds="0.8, 0.5, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"
                              x:Name="tutorialButtonsLayout" Scale="{OnPlatform UWP=0.7}">
-                    <Label Text="For the first time?" FontSize="30"  FontFamily="BigNoodleTitling" TextColor="White"/>
-                    <Label Text="View tutorial" FontSize="50"  FontFamily="bignoodletitling" TextColor="#45ffed" FontAttributes="Bold" x:Name="tutorialButton">
+                    <Label Text="For the first time?" FontSize="30"  FontFamily="TitleFont" TextColor="White"/>
+                    <Label Text="View tutorial" FontSize="50"  FontFamily="TitleFont" TextColor="#45ffed" FontAttributes="Bold" x:Name="tutorialButton">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnViewTutorialClicked"/>
                         </Label.GestureRecognizers>
                     </Label>
-                    <Label Text="Skip" FontSize="30"  FontFamily="bignoodletitling" TextColor="#ddd" FontAttributes="Bold" x:Name="skipButton" HorizontalOptions="End">
+                    <Label Text="Skip" FontSize="30"  FontFamily="TitleFont" TextColor="#ddd" FontAttributes="Bold" x:Name="skipButton" HorizontalOptions="End">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnSkipTutorialClicked"/>
                         </Label.GestureRecognizers>

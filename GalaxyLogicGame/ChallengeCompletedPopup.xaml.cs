@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 
-[assembly: ExportFont("SamsungOne700.ttf", Alias = "SamsungOne")]
 
 namespace GalaxyLogicGame
 {

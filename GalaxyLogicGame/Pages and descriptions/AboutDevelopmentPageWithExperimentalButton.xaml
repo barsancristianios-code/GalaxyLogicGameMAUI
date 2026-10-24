@@ -7,9 +7,9 @@
             <AbsoluteLayout>
                 <AbsoluteLayout x:Name="topLayout" AbsoluteLayout.LayoutBounds="0, 0, 360, 240">
                     <Image x:Name="mainImage" AbsoluteLayout.LayoutBounds="0, 0, 360, 240" Aspect="AspectFill"/>
-                    <Label Text="&lt;" AbsoluteLayout.LayoutBounds="0, 160, AutoSize, 40" FontSize="40" FontAttributes="Bold" FontFamily="BigNoodleTitling" TextColor="White" 
+                    <Label Text="&lt;" AbsoluteLayout.LayoutBounds="0, 160, AutoSize, 40" FontSize="40" FontAttributes="Bold" FontFamily="TitleFont" TextColor="White" 
                            HorizontalTextAlignment="Start"/>
-                    <Label x:Name="title" AbsoluteLayout.LayoutBounds="0, 200, AutoSize, 40" FontSize="40" FontAttributes="Bold" FontFamily="BigNoodleTitling" TextColor="White" 
+                    <Label x:Name="title" AbsoluteLayout.LayoutBounds="0, 200, AutoSize, 40" FontSize="40" FontAttributes="Bold" FontFamily="TitleFont" TextColor="White" 
                            HorizontalTextAlignment="Start"/>
                 </AbsoluteLayout>
                 <StackLayout x:Name="stackLayout" AbsoluteLayout.LayoutBounds="0, 260, 360, AutoSize">

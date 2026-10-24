@@ -11,7 +11,7 @@
            x:Name="title"/>
 
 
-    <Label AbsoluteLayout.LayoutBounds="0, 100, 360, AutoSize" FontFamily="BigNoodleTitling" FontAttributes="Bold" TextColor="White" FontSize="40" HorizontalTextAlignment="Start"
+    <Label AbsoluteLayout.LayoutBounds="0, 100, 360, AutoSize" FontFamily="TitleFont" FontAttributes="Bold" TextColor="White" FontSize="40" HorizontalTextAlignment="Start"
            Text="  &lt;"/>
 
 </AbsoluteLayout>

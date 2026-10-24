@@ -35,7 +35,7 @@ namespace GalaxyLogicGame.Pages_and_descriptions
                 experimentalButton.Text = "Only in ultra";
                 //experimentalButton.BackgroundColor = Color.Yellow;
                 experimentalButton.TextColor = Color.FromArgb("000");
-                experimentalButton.FontFamily = "BigNoodleTitling";
+                experimentalButton.FontFamily = "TitleFont";
                 experimentalButton.FontAttributes = FontAttributes.Bold;
             }
         }

@@ -20,7 +20,7 @@
                        AbsoluteLayout.LayoutFlags="PositionProportional"
                        FontSize="60"
                        FontAttributes="Bold"
-                       FontFamily="BigNoodleTitling"
+                       FontFamily="TitleFont"
                        Text="0"
                          TextColor="White"
                            HorizontalTextAlignment="Center"/>
@@ -84,7 +84,7 @@
                                 x:Name="lostScreenText"  FontSize="24" HorizontalTextAlignment="Center"/>
 
                     <Label Text="Main menu" AbsoluteLayout.LayoutBounds="0.5, 185, 320, 60" AbsoluteLayout.LayoutFlags="XProportional" IsVisible="true" TextColor="#45ffed"
-                               FontSize="48" FontFamily="BigNoodleTitling" FontAttributes="Bold"
+                               FontSize="48" FontFamily="TitleFont" FontAttributes="Bold"
                                 x:Name="lostScreenButton" HorizontalTextAlignment="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ToMainMenu"/>

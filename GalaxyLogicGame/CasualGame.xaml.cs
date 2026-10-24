@@ -3,7 +3,6 @@ using GalaxyLogicGame.Planet_objects;
 using System.Collections;
 using GalaxyLogicGame.Powerups;
 
-[assembly: ExportFont("bignoodletitling.ttf", Alias = "BigNoodleTitling")]
 
 // itadaki seieki <- some hentai to watch
 

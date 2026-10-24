@@ -23,7 +23,7 @@ namespace GalaxyLogicGame
                 TextColor = titleColor,
                 HorizontalTextAlignment = TextAlignment.Center,
                 FontAttributes = FontAttributes.Bold,
-                FontFamily = "SamsungOne"
+                FontFamily = "BodyFont"
             };
             layout.Children.Add(title);
             AbsoluteLayout.SetLayoutBounds(title, new Rect(0.5, yPosition, 360, 30));

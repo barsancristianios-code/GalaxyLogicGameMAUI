@@ -29,7 +29,7 @@
                FontSize="40"
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
-               FontFamily="SamsungOne" IsVisible="false"/>
+               FontFamily="BodyFont" IsVisible="false"/>
     <Label AbsoluteLayout.LayoutBounds=".5, .5, 60, 60"
                AbsoluteLayout.LayoutFlags="PositionProportional"
             x:Name="label"
@@ -37,6 +37,6 @@
                FontSize="40"
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
-               FontFamily="SamsungOne"/>
+               FontFamily="BodyFont"/>
     <planet_objects:BinaryIndicator x:Name="binary" IsVisible="false"/>
 </planet_objects:PlanetBase>

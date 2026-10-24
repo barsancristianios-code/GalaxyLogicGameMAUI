@@ -19,7 +19,7 @@
                        FontSize="40"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
-                       FontFamily="SamsungOne"/>
+                       FontFamily="BodyFont"/>
 
             <planet_objects:BinaryIndicator x:Name="binary" IsVisible="false"/>
 
@@ -31,7 +31,7 @@
                TextColor="Black"
                FontSize="40"
                AbsoluteLayout.LayoutBounds="0.5, 0.5, 60, 50" AbsoluteLayout.LayoutFlags="PositionProportional"
-               FontFamily="SamsungOne"/>
+               FontFamily="BodyFont"/>
             </AbsoluteLayout>
         </AbsoluteLayout>
     </Border>

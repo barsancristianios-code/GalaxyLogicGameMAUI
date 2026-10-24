@@ -166,7 +166,7 @@ namespace GalaxyLogicGame
         {
             Label moreInfoLabel = new Label
             {
-                VerticalTextAlignment = TextAlignment.Center, FontSize = 14, FontFamily = "SamsungOne", TextColor = Color.FromArgb("fff"), FontAttributes = FontAttributes.Bold, Text = "Click here for more info"
+                VerticalTextAlignment = TextAlignment.Center, FontSize = 14, FontFamily = "BodyFont", TextColor = Color.FromArgb("fff"), FontAttributes = FontAttributes.Bold, Text = "Click here for more info"
             };
             AbsoluteLayout.SetLayoutBounds(moreInfoLabel, new Rect(20, 0.5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
             AbsoluteLayout.SetLayoutFlags(moreInfoLabel, AbsoluteLayoutFlags.YProportional);

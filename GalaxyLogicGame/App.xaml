@@ -20,7 +20,7 @@
         </Style>
         
         <Style x:Key="roundedButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="bignoodletitling"/>
+            <Setter Property="FontFamily" Value="TitleFont"/>
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="CornerRadius" Value="30"/>
             <Setter Property="HeightRequest" Value="60"/>
@@ -31,13 +31,13 @@
         </Style>
         <Style x:Key="normalLabel" TargetType="Label">
             <Setter Property="TextColor" Value="White"/>
-            <Setter Property="FontFamily" Value="SamsungOne"/>
+            <Setter Property="FontFamily" Value="BodyFont"/>
             <Setter Property="FontSize" Value="28"/>
         </Style>
    
         <Style x:Key="mainPageLabel" TargetType="Label">
             <Setter Property="HorizontalOptions" Value="Center"/>
-            <Setter Property="FontFamily" Value="BigNoodleTitling"/>
+            <Setter Property="FontFamily" Value="TitleFont"/>
             <Setter Property="FontSize" Value="35"/>
             <Setter Property="TranslationY" Value="360"/>
             <Setter Property="TextColor" Value="#dddddd"/>

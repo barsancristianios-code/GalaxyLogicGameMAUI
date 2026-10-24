@@ -14,7 +14,7 @@
                             <pages_and_descriptions:EventHeader TitleText="Binary" TitleColor="DarkGreen" Icon="binary.png"/>
                             <BoxView HeightRequest="10"/>
 
-                <!--<Label Text="Binary event" TextColor="DarkGreen" FontSize="24" FontFamily="SamsungOne" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                <!--<Label Text="Binary event" TextColor="DarkGreen" FontSize="24" FontFamily="BodyFont" FontAttributes="Bold" HorizontalTextAlignment="Center"
                     VerticalOptions="Start" 
                     HorizontalOptions="CenterAndExpand" />-->
                             <Label Text="Binary is a special challenging event. You will get a random formation of ones and zeros and your goal is to replicate that formation in your own galaxy. Each planet has it's own binary indicator. If you do not replicate the formation in 3 moves, you will be punished by getting debris in your way." 
