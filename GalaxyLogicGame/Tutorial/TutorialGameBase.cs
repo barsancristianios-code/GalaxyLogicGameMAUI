@@ -31,7 +31,7 @@ namespace GalaxyLogicGame.Tutorial
             
             BG.LowerUILayout.IsVisible = false;
             BG.PowerupsAllowed = false;
-            if (Device.RuntimePlatform == Device.Tizen) { BG.BackgroundImage.Source = "starsSky.jpg"; AbsoluteLayout.SetLayoutBounds(BG.BackgroundImage, new Rect(0.5, 0.5, 360, 360)); }
+            if (DeviceInfo.Platform == DevicePlatform.Tizen) { BG.BackgroundImage.Source = "starsSky.jpg"; AbsoluteLayout.SetLayoutBounds(BG.BackgroundImage, new Rect(0.5, 0.5, 360, 360)); }
             else
             {
                 AbsoluteLayout.SetLayoutBounds(BG.BackgroundImage, new Rect(0.5, 0.5, 480, 480));
@@ -60,7 +60,7 @@ namespace GalaxyLogicGame.Tutorial
         {
             for (int i = 0; i < ClickableAreas.Count; i++)
             {
-                if (ClickableAreas.Count > i) try { ((ClickableAreaWithParticles)ClickableAreas[i]).FadeTo(0, 250); } catch { }
+                if (ClickableAreas.Count > i) try { ((ClickableAreaWithParticles)ClickableAreas[i]).FadeToAsync(0, 250); } catch { }
             }
 
             await base.AddingPlanet(index);
@@ -82,7 +82,7 @@ namespace GalaxyLogicGame.Tutorial
             };
             AbsoluteLayout tempLayout = new AbsoluteLayout
             {
-                BackgroundColor = Color.FromHex("88000000"),
+                BackgroundColor = Color.FromArgb("88000000"),
                 Opacity = 0,
             };
             tempLayout.IsVisible = true;
@@ -99,7 +99,7 @@ namespace GalaxyLogicGame.Tutorial
                     if (Clicked)
                     {
                         Clicked = false;
-                        await tempLayout.FadeTo(0, 500);
+                        await tempLayout.FadeToAsync(0, 500);
                         tempLayout.IsVisible = false;
                         AddTutorialClickableArea(index);
 
@@ -110,7 +110,7 @@ namespace GalaxyLogicGame.Tutorial
             });
 
             await Task.Delay(500);
-            await tempLayout.FadeTo(1, 250);
+            await tempLayout.FadeToAsync(1, 250);
         }
 
 
@@ -127,7 +127,7 @@ namespace GalaxyLogicGame.Tutorial
             };
             AbsoluteLayout tempLayout = new AbsoluteLayout
             {
-                BackgroundColor = Color.FromHex("88000000"),
+                BackgroundColor = Color.FromArgb("88000000"),
                 Opacity = 0,
             };
             tempLayout.Children.Add(label);
@@ -143,7 +143,7 @@ namespace GalaxyLogicGame.Tutorial
             });
 
             await Task.Delay(500);
-            await tempLayout.FadeTo(1, 250);
+            await tempLayout.FadeToAsync(1, 250);
         }
 
 
@@ -162,7 +162,7 @@ namespace GalaxyLogicGame.Tutorial
             };
             AbsoluteLayout tempLayout = new AbsoluteLayout
             {
-                BackgroundColor = Color.FromHex("88000000"),
+                BackgroundColor = Color.FromArgb("88000000"),
                 Opacity = 0,
             };
             tempLayout.Children.Add(label);
@@ -181,7 +181,7 @@ namespace GalaxyLogicGame.Tutorial
                     if (Clicked)
                     {
                         Clicked = false;
-                        await tempLayout.FadeTo(0, 500);
+                        await tempLayout.FadeToAsync(0, 500);
                         tempLayout.IsVisible = false;
                         BG.TutorialLayout.Children.Remove(tempLayout);
 
@@ -191,7 +191,7 @@ namespace GalaxyLogicGame.Tutorial
             });
 
             await Task.Delay(500);
-            await tempLayout.FadeTo(1, 250);
+            await tempLayout.FadeToAsync(1, 250);
         }
 
         public void AddTutorialClickableArea(int index)

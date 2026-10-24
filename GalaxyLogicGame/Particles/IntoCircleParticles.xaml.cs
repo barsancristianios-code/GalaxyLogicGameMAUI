@@ -40,9 +40,9 @@ namespace GalaxyLogicGame
                 particle.Rotation = random.Next(-360, 360);
                 particle.TranslationX = p.X;
                 particle.TranslationY = p.Y;
-                particle.TranslateTo(0, 0, (uint)duration*2, Easing.SinOut);
-                particle.RotateTo(random.Next(-360, 360), (uint)duration, Easing.SinOut);
-                particle.FadeTo(0, (uint)duration, Easing.SinIn);
+                particle.TranslateToAsync(0, 0, (uint)duration*2, Easing.SinOut);
+                particle.RotateToAsync(random.Next(-360, 360), (uint)duration, Easing.SinOut);
+                particle.FadeToAsync(0, (uint)duration, Easing.SinIn);
 
             }
             await Task.Delay(duration);

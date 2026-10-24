@@ -55,10 +55,10 @@ namespace GalaxyLogicGame.Events
             // something more
             await Task.WhenAll(
                 Functions.EventTitleAnimation(eventTitle, eventIcon)
-                /*,choiceLayout.FadeTo(0.5, 500)*/
-                , darken.FadeTo(1, 500));
+                /*,choiceLayout.FadeToAsync(0.5, 500)*/
+                , darken.FadeToAsync(1, 500));
 
-            await choiceLayout.FadeTo(1, 500);
+            await choiceLayout.FadeToAsync(1, 500);
 
             // 3 random planets
 
@@ -92,7 +92,7 @@ namespace GalaxyLogicGame.Events
                 {
                     transform = -0.33;
                 }
-                eventDescription.TranslateTo(transform * offsetBetweenPlanets, 120, 500, Easing.SpringOut);
+                eventDescription.TranslateToAsync(transform * offsetBetweenPlanets, 120, 500, Easing.SpringOut);
                 await Task.Delay(200);
 
                 eventDescription.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(async () => await OnClicked(game, eventDescription.Index)) });
@@ -176,13 +176,13 @@ namespace GalaxyLogicGame.Events
 
                 for (int i = 0; i < descriptions.Length; i++)
                 {
-                    descriptions[i].TranslateTo(descriptions[i].TranslationX, 360, 350, Easing.SpringIn);
+                    descriptions[i].TranslateToAsync(descriptions[i].TranslationX, 360, 350, Easing.SpringIn);
                     if (i == 0) await Task.Delay(200);
                 }
                 //await Task.Delay(200);
 
-                await mainLayout.FadeTo(0, 500);
-                //await planetsChoice[index].TranslateTo(0, 0, 250);
+                await mainLayout.FadeToAsync(0, 500);
+                //await planetsChoice[index].TranslateToAsync(0, 0, 250);
 
                 game.BG.HideAllEvents();
 

@@ -39,11 +39,11 @@ namespace GalaxyLogicGame.Particles
         }
         public async Task TransitionUpIn()
         {
-            this.FadeTo(1, 500);
+            this.FadeToAsync(1, 500);
             for (int i = 0; i < starsArray.Length; i++)
             {
-                starsArray[i].TranslateTo(starsArray[i].TranslationX, starsArray[i].TranslationY - 180, 500, Easing.SinIn);
-                starsArray[i].ScaleYTo(30, 500, Easing.SinIn);
+                starsArray[i].TranslateToAsync(starsArray[i].TranslationX, starsArray[i].TranslationY - 180, 500, Easing.SinIn);
+                starsArray[i].ScaleYToAsync(30, 500, Easing.SinIn);
             }
             await Task.Delay(500);
         }
@@ -51,12 +51,12 @@ namespace GalaxyLogicGame.Particles
         {
             for (int i = 0; i < starsArray.Length; i++)
             {
-                starsArray[i].TranslateTo(starsArray[i].TranslationX, starsArray[i].TranslationY - 180, 500, Easing.SinOut);
-                starsArray[i].ScaleYTo(1, 500, Easing.SinOut);
+                starsArray[i].TranslateToAsync(starsArray[i].TranslationX, starsArray[i].TranslationY - 180, 500, Easing.SinOut);
+                starsArray[i].ScaleYToAsync(1, 500, Easing.SinOut);
 
             }
             await Task.Delay(500);
-            this.FadeTo(0, 500);
+            this.FadeToAsync(0, 500);
         }
     }
 }

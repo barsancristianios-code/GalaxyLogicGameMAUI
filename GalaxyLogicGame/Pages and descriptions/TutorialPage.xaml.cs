@@ -168,11 +168,11 @@ namespace GalaxyLogicGame
         public async Task TransitionIn()
         {
             await Task.WhenAll(
-                wallpaper.TranslateTo(0, 0, 500, Easing.SinOut),
-                wallpaper.FadeTo(1, 500, Easing.SinOut),
+                wallpaper.TranslateToAsync(0, 0, 500, Easing.SinOut),
+                wallpaper.FadeToAsync(1, 500, Easing.SinOut),
                 stars.TransitionUpOut(),
-                mainLayout.TranslateTo(0, 0, 500, Easing.SinOut),
-                mainLayout.FadeTo(1, 500));
+                mainLayout.TranslateToAsync(0, 0, 500, Easing.SinOut),
+                mainLayout.FadeToAsync(1, 500));
 
             starsLayout.Children.Clear();
         }

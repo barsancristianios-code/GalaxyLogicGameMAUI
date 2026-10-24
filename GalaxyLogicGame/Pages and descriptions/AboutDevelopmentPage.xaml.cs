@@ -19,7 +19,7 @@ namespace GalaxyLogicGame.Pages_and_descriptions
             topLayout.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(async () => { await Navigation.PopAsync(); }) });
 
 
-            //if (Device.RuntimePlatform != Device.Tizen) ScaleToScreen();
+            //if (DeviceInfo.Platform != DevicePlatform.Tizen) ScaleToScreen();
         }
 
         public bool InvertedColors { set { if (value) { title.TextColor = Color.FromArgb("000"); back.TextColor = Color.FromArgb("000"); } } }

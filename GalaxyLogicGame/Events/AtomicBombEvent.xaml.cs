@@ -57,28 +57,28 @@ namespace GalaxyLogicGame.Events
             if (game.Blackholes.Count == 0 && game.NewPlanet != null)
             {
                 if (game.NewPlanet.Type == 0) game.MiddleParticle.Stop(250);
-                await game.NewPlanet.FadeTo(0, 500);
+                await game.NewPlanet.FadeToAsync(0, 500);
                 game.AtomsLayout.Children.Remove(game.NewPlanet);
             }
             else
             {
-                await ((Blackhole)game.Blackholes[0]).FadeTo(0, 500);
+                await ((Blackhole)game.Blackholes[0]).FadeToAsync(0, 500);
                 game.BlackholeLayout.Children.Remove((Blackhole)game.Blackholes[0]);
             }
             if (game is GameWithEvents)
             {
-                if (((GameWithEvents)game).TIR != null) ((GameWithEvents)game).TIR.FadeTo(0, 500);
-                else if (((GameWithEvents)game).EventObject != null) ((GameWithEvents)game).EventObject.EventTitle.FadeTo(0, 500);
+                if (((GameWithEvents)game).TIR != null) ((GameWithEvents)game).TIR.FadeToAsync(0, 500);
+                else if (((GameWithEvents)game).EventObject != null) ((GameWithEvents)game).EventObject.EventTitle.FadeToAsync(0, 500);
             }
             await Task.WhenAll(
                 Functions.EventTitleAnimation(eventTitle, eventIcon)
-                /*,choiceLayout.FadeTo(0.5, 500)*/
-                , darken.FadeTo(1, 500),
-                game.BG.EventLayout.FadeTo(0, 500));
+                /*,choiceLayout.FadeToAsync(0.5, 500)*/
+                , darken.FadeToAsync(1, 500),
+                game.BG.EventLayout.FadeToAsync(0, 500));
 
             //game.BG.HideAllEvents();
 
-            await choiceLayout.FadeTo(1, 500);
+            await choiceLayout.FadeToAsync(1, 500);
 
 
             game.ClickableAreaLayout.Children.Clear();
@@ -142,28 +142,28 @@ namespace GalaxyLogicGame.Events
                 {
                     if (game.NewPlanet.Type == 0) game.MiddleParticle.Play();
                     game.AtomsLayout.Children.Add(game.NewPlanet);
-                    game.NewPlanet.FadeTo(1, 500);
+                    game.NewPlanet.FadeToAsync(1, 500);
                     game.AddClickableAreasToLayout();
                 }
                 else
                 {
                     game.BlackholeLayout.Children.Add((Blackhole)game.Blackholes[0]);
-                    ((Blackhole)game.Blackholes[0]).FadeTo(1, 500);
+                    ((Blackhole)game.Blackholes[0]).FadeToAsync(1, 500);
                     game.AddBlackholeAreas();
                 }
                 if (game is GameWithEvents)
                 {
-                    if (((GameWithEvents)game).TIR != null) ((GameWithEvents)game).TIR.FadeTo(1, 500);
-                    else if (((GameWithEvents)game).EventObject != null) ((GameWithEvents)game).EventObject.EventTitle.FadeTo(1, 500);
+                    if (((GameWithEvents)game).TIR != null) ((GameWithEvents)game).TIR.FadeToAsync(1, 500);
+                    else if (((GameWithEvents)game).EventObject != null) ((GameWithEvents)game).EventObject.EventTitle.FadeToAsync(1, 500);
                 }
 
                 // add a radioactive thing
 
                 await Task.WhenAll(
-                    darken.FadeTo(0, 500),
-                    choiceLayout.FadeTo(0, 500),
-                    eventTitle.FadeTo(0, 500),
-                    game.BG.EventLayout.FadeTo(1, 500));
+                    darken.FadeToAsync(0, 500),
+                    choiceLayout.FadeToAsync(0, 500),
+                    eventTitle.FadeToAsync(0, 500),
+                    game.BG.EventLayout.FadeToAsync(1, 500));
                 game.BG.LowerEventLayout.Children.Remove(this);
 
                 game.Clicked = true;

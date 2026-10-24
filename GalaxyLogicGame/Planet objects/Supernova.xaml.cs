@@ -44,7 +44,7 @@ namespace GalaxyLogicGame.Planet_objects
         public async Task FadeStarBase(int delay)
         {
             await Task.WhenAll(
-                starBase.FadeTo(0, (uint)delay));
+                starBase.FadeToAsync(0, (uint)delay));
         }
         public override BinaryIndicator Binary => binary;
     }

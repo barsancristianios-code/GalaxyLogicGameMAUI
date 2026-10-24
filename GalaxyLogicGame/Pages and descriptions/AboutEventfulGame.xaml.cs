@@ -123,11 +123,11 @@ namespace GalaxyLogicGame
         public async Task TransitionIn()
         {
             await Task.WhenAll(
-                wallpaper.TranslateTo(0, 0, 500, Easing.SinOut),
-                wallpaper.FadeTo(1, 500, Easing.SinOut),
+                wallpaper.TranslateToAsync(0, 0, 500, Easing.SinOut),
+                wallpaper.FadeToAsync(1, 500, Easing.SinOut),
                 stars.TransitionUpOut(),
-                mainLayout.TranslateTo(0, 0, 500, Easing.SinOut),
-                mainLayout.FadeTo(1, 500));
+                mainLayout.TranslateToAsync(0, 0, 500, Easing.SinOut),
+                mainLayout.FadeToAsync(1, 500));
 
             starsLayout.Children.Clear();
         }
@@ -136,11 +136,11 @@ namespace GalaxyLogicGame
         {
             Button background = new Button
             {
-                BackgroundColor = Color.FromHex("1f1f1f"),
+                BackgroundColor = Color.FromArgb("1f1f1f"),
                 CornerRadius = 30,
                 IsEnabled = false,
             };
-            //BoxView background = new BoxView { BackgroundColor = Color.FromHex("1f1f1f"), CornerRadius = 30 };
+            //BoxView background = new BoxView { BackgroundColor = Color.FromArgb("1f1f1f"), CornerRadius = 30 };
             AbsoluteLayout.SetLayoutBounds(background, new Rect(0.5, 0.5, 1, 1));
             AbsoluteLayout.SetLayoutFlags(background, AbsoluteLayoutFlags.All);
 
@@ -156,7 +156,7 @@ namespace GalaxyLogicGame
                     tap,
                 },
             };
-            //BoxView background = new BoxView { BackgroundColor = Color.FromHex("1f1f1f"), CornerRadius = 30 };
+            //BoxView background = new BoxView { BackgroundColor = Color.FromArgb("1f1f1f"), CornerRadius = 30 };
             AbsoluteLayout.SetLayoutBounds(background, new Rect(0.5, 0.5, 1, 1));
             AbsoluteLayout.SetLayoutFlags(background, AbsoluteLayoutFlags.All);
 
@@ -217,10 +217,10 @@ namespace GalaxyLogicGame
             await Task.WhenAll(
                 this.stars.TransitionUpIn(),
 
-                mainLayout.TranslateTo(0, -360 * ratio, 500, Easing.SinIn),
+                mainLayout.TranslateToAsync(0, -360 * ratio, 500, Easing.SinIn),
 
-                //wallpaper.TranslateTo(0, -180, 500, Easing.SinIn),
-                wallpaper.FadeTo(0, 500, Easing.SinIn));
+                //wallpaper.TranslateToAsync(0, -180, 500, Easing.SinIn),
+                wallpaper.FadeToAsync(0, 500, Easing.SinIn));
 
             starsLayout.Children.Remove(this.stars);
             page.AssingStars(stars);

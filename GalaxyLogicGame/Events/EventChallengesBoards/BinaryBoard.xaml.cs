@@ -22,13 +22,13 @@ namespace GalaxyLogicGame.Events.EventChallengesBoards
         {
             if (textLayout.Opacity == 0)
             {
-                textLayout.FadeTo(1, 250);
-                binaryLayout.FadeTo(0, 250);
+                textLayout.FadeToAsync(1, 250);
+                binaryLayout.FadeToAsync(0, 250);
             }
             else
             {
-                textLayout.FadeTo(0, 250);
-                binaryLayout.FadeTo(1, 250);
+                textLayout.FadeToAsync(0, 250);
+                binaryLayout.FadeToAsync(1, 250);
             }
         }
 
@@ -57,7 +57,7 @@ namespace GalaxyLogicGame.Events.EventChallengesBoards
             }
 
 
-            await this.FadeTo(1, 500);
+            await this.FadeToAsync(1, 500);
 
             
 
@@ -66,7 +66,7 @@ namespace GalaxyLogicGame.Events.EventChallengesBoards
 
         public async Task Disappear(IGameBG bg)
         {
-            await this.FadeTo(0, 250);
+            await this.FadeToAsync(0, 250);
             bg.LowerUILayout.Children.Remove(this);
             bg.Board = null;
         }

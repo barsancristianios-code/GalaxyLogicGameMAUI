@@ -101,11 +101,11 @@ namespace GalaxyLogicGame.Events
                 Blueberry blueberry = new Blueberry();
                 game.AtomsLayout.Children.Add(blueberry);
                 await Task.WhenAll(
-                    blueberry.TranslateTo(x, y, 250, Easing.SpringOut), 
+                    blueberry.TranslateToAsync(x, y, 250, Easing.SpringOut), 
                     Task.Run(async () => {
                         await Task.Delay(200);
-                        await blueberry.ScaleTo(1.2, 75, Easing.SinIn);
-                        await blueberry.ScaleTo(1, 50, Easing.SinOut);
+                        await blueberry.ScaleToAsync(1.2, 75, Easing.SinIn);
+                        await blueberry.ScaleToAsync(1, 50, Easing.SinOut);
 
                         // animation
                     }
@@ -176,7 +176,7 @@ namespace GalaxyLogicGame.Events
                             {
                                 TranslationX = startX,
                                 TranslationY = startY,
-                                BackgroundColor = random.Next(0, 4) == 0 ? Color.FromHex("1f1f99") : Color.FromHex("#a62149"),
+                                BackgroundColor = random.Next(0, 4) == 0 ? Color.FromArgb("1f1f99") : Color.FromArgb("#a62149"),
                                 Rotation = random.Next(-360, 360),
                                 Opacity = 0.7,
                                 CornerRadius = 20,
@@ -186,16 +186,16 @@ namespace GalaxyLogicGame.Events
                             AbsoluteLayout.SetLayoutBounds(particle, new Rect(0.5, 0.5, size, size));
                             AbsoluteLayout.SetLayoutFlags(particle, AbsoluteLayoutFlags.PositionProportional);
                             particles.Add(particle);
-                            particle.TranslateTo(endX, endY, 250);
-                            //particle.RotateTo(random.Next(-360, 360), 250);
+                            particle.TranslateToAsync(endX, endY, 250);
+                            //particle.RotateToAsync(random.Next(-360, 360), 250);
                             await Task.Delay(30);
                         }
                         Task.Run(async () => {
                             await Task.Delay(200);
-                            await tempPlanet.ScaleTo(1.2, 50, Easing.SpringOut);
-                            if (bonus > 1) await tempPlanet.ScaleTo(1.35, 50, Easing.SpringOut);
-                            if (bonus > 2) await tempPlanet.ScaleTo(1.45, 50, Easing.SpringOut);
-                            await tempPlanet.ScaleTo(1, 150, Easing.SinIn);
+                            await tempPlanet.ScaleToAsync(1.2, 50, Easing.SpringOut);
+                            if (bonus > 1) await tempPlanet.ScaleToAsync(1.35, 50, Easing.SpringOut);
+                            if (bonus > 2) await tempPlanet.ScaleToAsync(1.45, 50, Easing.SpringOut);
+                            await tempPlanet.ScaleToAsync(1, 150, Easing.SinIn);
                         });
 
                         tempPlanet.Text = (Functions.GetAtomValue(tempPlanet) + bonus).ToString();
@@ -214,7 +214,7 @@ namespace GalaxyLogicGame.Events
             }
 
 
-            await mainLayout.FadeTo(0, 250);
+            await mainLayout.FadeToAsync(0, 250);
             game.BG.LowerEventLayout.Children.Remove(this);
 
             game.EventObject = null;

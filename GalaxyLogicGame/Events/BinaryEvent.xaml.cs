@@ -59,10 +59,10 @@ namespace GalaxyLogicGame.Events
             // something more - IDK what actually
             await Task.WhenAll(
                 Functions.EventTitleAnimation(eventTitle, eventIcon)
-                /*,choiceLayout.FadeTo(0.5, 500)*/
-                , darken.FadeTo(1, 500));
+                /*,choiceLayout.FadeToAsync(0.5, 500)*/
+                , darken.FadeToAsync(1, 500));
 
-            await choiceLayout.FadeTo(1, 500);
+            await choiceLayout.FadeToAsync(1, 500);
 
             // turning Binary on
             for (int i = 0; i < game.Atoms.Count; i++)
@@ -93,7 +93,7 @@ namespace GalaxyLogicGame.Events
 
                 choiceLayout.Children.Add(binary);
 
-                await binary.ScaleTo(1, 250, Easing.SpringOut); // 500
+                await binary.ScaleToAsync(1, 250, Easing.SpringOut); // 500
                 await Task.Delay(75); //200
             }
         }
@@ -103,9 +103,9 @@ namespace GalaxyLogicGame.Events
             /*
             for (int i = 0; i < game.Atoms.Count; i++)
             {
-                ((IPlanet)game.Atoms[i]).Binary.FadeTo(0, 500);
+                ((IPlanet)game.Atoms[i]).Binary.FadeToAsync(0, 500);
             }
-            if (game.NewPlanet != null) game.NewPlanet.Binary.FadeTo(0, 500);
+            if (game.NewPlanet != null) game.NewPlanet.Binary.FadeToAsync(0, 500);
             await Task.Delay(600);
             for (int i = 0; i < game.Atoms.Count; i++)
             {
@@ -208,15 +208,15 @@ namespace GalaxyLogicGame.Events
         private async void OnContinueClicked(object sender, EventArgs e)
         {
             await Task.WhenAll(
-                choiceLayout.FadeTo(0, 500),
-                darken.FadeTo(0, 500));
+                choiceLayout.FadeToAsync(0, 500),
+                darken.FadeToAsync(0, 500));
             game.BG.HideAllEvents();
             game.BlindnessLayout.Children.Add(this);
             
 
             game.EventHappening = false;
             eventHappening = false;
-            eventTitle.FadeTo(0, 250);
+            eventTitle.FadeToAsync(0, 250);
             if (await CheckFormation()) return;
 
 

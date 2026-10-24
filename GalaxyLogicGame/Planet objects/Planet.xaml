@@ -6,7 +6,7 @@
              AbsoluteLayout.LayoutBounds="0.5, 0.5, 60, 60"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 x:Name="mainLayout">
-    <Frame CornerRadius="30" Padding="0"
+    <Border StrokeShape="RoundRectangle 30" StrokeThickness="0" Padding="0"
            AbsoluteLayout.LayoutBounds=".5, .5, 60, 60"
            AbsoluteLayout.LayoutFlags="PositionProportional"
            x:Name="bg">
@@ -34,5 +34,5 @@
                FontFamily="SamsungOne"/>
             </AbsoluteLayout>
         </AbsoluteLayout>
-    </Frame>
+    </Border>
 </planet_objects:PlanetBase>

@@ -42,7 +42,7 @@ namespace GalaxyLogicGame
             if (index < colors.Length) return colors[index];
             else return Color.FromArgb("fff");
         }
-        public static Color[] TransitionColors { get { Color[] c = { Color.FromHex("00006B"), Color.FromHex("00006B"), Color.FromArgb("7800b0") }; return c; } }
+        public static Color[] TransitionColors { get { Color[] c = { Color.FromArgb("00006B"), Color.FromArgb("00006B"), Color.FromArgb("7800b0") }; return c; } }
 
 
         public static Color DetermineWhiteOrBlack(Color bgcolor)
@@ -66,25 +66,25 @@ namespace GalaxyLogicGame
         public static async Task EventTitleAnimation(Label title, Image icon, AbsoluteLayout darken)
         {
             await Task.WhenAll(
-                darken.FadeTo(1, 500),
-                title.FadeTo(1, 500),
-                icon.FadeTo(1, 500));
+                darken.FadeToAsync(1, 500),
+                title.FadeToAsync(1, 500),
+                icon.FadeToAsync(1, 500));
             await Task.Delay(500);
-            icon.FadeTo(0, 500);
+            icon.FadeToAsync(0, 500);
             await Task.Delay(250);
-            if (Device.RuntimePlatform == Device.Tizen || IsSquareScreen())
+            if (DeviceInfo.Platform == DevicePlatform.Tizen || IsSquareScreen())
             {
                 await Task.WhenAll(
-                    title.TranslateTo(0, -150, 250, Easing.SinIn),
-                    title.ScaleTo(0.5, 250),
-                    darken.FadeTo(0, 250));
+                    title.TranslateToAsync(0, -150, 250, Easing.SinIn),
+                    title.ScaleToAsync(0.5, 250),
+                    darken.FadeToAsync(0, 250));
             }
             else
             {
                 await Task.WhenAll(
-                    title.TranslateTo(0, 205, 500, Easing.SpringOut),
-                    title.ScaleTo(1.2, 500),
-                    darken.FadeTo(0, 250));
+                    title.TranslateToAsync(0, 205, 500, Easing.SpringOut),
+                    title.ScaleToAsync(1.2, 500),
+                    darken.FadeToAsync(0, 250));
             }
 
 
@@ -228,22 +228,22 @@ namespace GalaxyLogicGame
         public static async Task EventTitleAnimation(Label title, Image icon)
         {
             await Task.WhenAll(
-                title.FadeTo(1, 500),
-                icon.FadeTo(1, 500));
+                title.FadeToAsync(1, 500),
+                icon.FadeToAsync(1, 500));
             await Task.Delay(500);
-            icon.FadeTo(0, 500);
+            icon.FadeToAsync(0, 500);
             await Task.Delay(250);
-            if (Device.RuntimePlatform == Device.Tizen || IsSquareScreen())
+            if (DeviceInfo.Platform == DevicePlatform.Tizen || IsSquareScreen())
             {
                 await Task.WhenAll(
-                    title.TranslateTo(0, -150, 250, Easing.SinIn),
-                    title.ScaleTo(0.5, 250));
+                    title.TranslateToAsync(0, -150, 250, Easing.SinIn),
+                    title.ScaleToAsync(0.5, 250));
             }
             else
             {
                 await Task.WhenAll(
-                    title.TranslateTo(0, 205, 500, Easing.SpringOut),
-                    title.ScaleTo(1.2, 500));
+                    title.TranslateToAsync(0, 205, 500, Easing.SpringOut),
+                    title.ScaleToAsync(1.2, 500));
             }
         }
     }

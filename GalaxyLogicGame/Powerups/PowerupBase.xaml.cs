@@ -85,8 +85,8 @@ namespace GalaxyLogicGame.Powerups
             else if (clicked)
             {
                 //await Task.WhenAll(
-                //    this.TranslateTo(0, -100, 750, Easing.CubicIn),
-                //   this.ScaleTo(1.2, 750, Easing.CubicIn));
+                //    this.TranslateToAsync(0, -100, 750, Easing.CubicIn),
+                //   this.ScaleToAsync(1.2, 750, Easing.CubicIn));
                 SeePowerupDetailsClicked();
                 // special animation
             }

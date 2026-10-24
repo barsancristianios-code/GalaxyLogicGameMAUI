@@ -21,7 +21,7 @@ namespace GalaxyLogicGame.Planet_objects
         {
             InitializeComponent();
 
-            /*if (true)// (Device.RuntimePlatform == Device.Tizen)
+            /*if (true)// (DeviceInfo.Platform == DevicePlatform.Tizen)
             {
                 //bg = new ButtonBG { CornerRadius = 30 };
                 bg = new ButtonBG { CornerRadius = 30, IsEnabled = false, };

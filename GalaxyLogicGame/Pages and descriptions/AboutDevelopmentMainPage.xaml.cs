@@ -52,7 +52,7 @@ namespace GalaxyLogicGame.Pages_and_descriptions
             ReloadOnlineArticles();
 
             update40Done.FirstLayout = update40Layout;
-            if (Device.RuntimePlatform != Device.Tizen) ScaleToScreen();
+            if (DeviceInfo.Platform != DevicePlatform.Tizen) ScaleToScreen();
 
         }
         private async Task ReloadOnlineArticles()

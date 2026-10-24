@@ -47,7 +47,7 @@ namespace GalaxyLogicGame.Events
 
             await Functions.EventTitleAnimation(eventTitle, eventIcon, darken);
             await Task.Delay(500);
-            await this.FadeTo(0, 500);
+            await this.FadeToAsync(0, 500);
             game.BG.HideAllEvents();
         }
         public bool EventHappening { get => false; }

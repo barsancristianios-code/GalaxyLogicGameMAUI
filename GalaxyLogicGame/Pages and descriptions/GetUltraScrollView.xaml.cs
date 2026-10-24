@@ -21,12 +21,12 @@ namespace GalaxyLogicGame.Pages_and_descriptions
             this.layout = layout;
             layout.IsVisible = true;
             layout.Children.Add(this);
-            this.FadeTo(1, 500);
+            this.FadeToAsync(1, 500);
 
         }
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await this.FadeTo(0, 500);
+            await this.FadeToAsync(0, 500);
             layout.Children.Remove(this);
             layout.IsVisible = false;
         }

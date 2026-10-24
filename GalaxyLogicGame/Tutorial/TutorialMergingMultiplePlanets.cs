@@ -118,13 +118,13 @@ namespace GalaxyLogicGame.Tutorial
 
 
                             await Task.WhenAll(
-                                ((PlanetBase)Atoms[low]).TranslateTo(x, y, (uint)delay, Easing.SinIn),
-                                ((PlanetBase)Atoms[high]).TranslateTo(x, y, (uint)delay, Easing.SinIn),
+                                ((PlanetBase)Atoms[low]).TranslateToAsync(x, y, (uint)delay, Easing.SinIn),
+                                ((PlanetBase)Atoms[high]).TranslateToAsync(x, y, (uint)delay, Easing.SinIn),
                                 Task.Run(async () => {
                                     await Task.Delay((int)(delay / 1.25));
-                                    await ((PlanetBase)Atoms[i]).ScaleTo(1.2 * Math.Pow(1.1, atomBonus), (uint)(delay / (4 * Math.Pow(1.25, atomBonus))), Easing.SinIn);
-                                    particles.ScaleTo(1.2 * Math.Pow(1.1, atomBonus), (uint)(delay / (4 * Math.Pow(1.25, atomBonus))), Easing.SinIn);
-                                    await ((PlanetBase)Atoms[i]).ScaleTo(1, (uint)delay / 2, Easing.SinOut);
+                                    await ((PlanetBase)Atoms[i]).ScaleToAsync(1.2 * Math.Pow(1.1, atomBonus), (uint)(delay / (4 * Math.Pow(1.25, atomBonus))), Easing.SinIn);
+                                    particles.ScaleToAsync(1.2 * Math.Pow(1.1, atomBonus), (uint)(delay / (4 * Math.Pow(1.25, atomBonus))), Easing.SinIn);
+                                    await ((PlanetBase)Atoms[i]).ScaleToAsync(1, (uint)delay / 2, Easing.SinOut);
                                 }));
                             // */
                             //await Task.Delay(delay); /// -----------
@@ -172,7 +172,7 @@ namespace GalaxyLogicGame.Tutorial
                                 };
                                 AbsoluteLayout tempLayout = new AbsoluteLayout
                                 {
-                                    BackgroundColor = Color.FromHex("88000000"),
+                                    BackgroundColor = Color.FromArgb("88000000"),
                                     Opacity = 0,
                                 };
                                 tempLayout.Children.Add(label);
@@ -189,7 +189,7 @@ namespace GalaxyLogicGame.Tutorial
                                         if (Clicked)
                                         {
                                             Clicked = false;
-                                            await tempLayout.FadeTo(0, 500);
+                                            await tempLayout.FadeToAsync(0, 500);
                                             tempLayout.IsVisible = false;
                                             BG.TutorialLayout.Children.Remove(tempLayout);
                                             BG.TutorialLayout.IsVisible = false;
@@ -200,7 +200,7 @@ namespace GalaxyLogicGame.Tutorial
                                 });
 
                                 await Task.Delay(500);
-                                await tempLayout.FadeTo(1, 250);
+                                await tempLayout.FadeToAsync(1, 250);
                             }
                             while (messageDone)
                             {

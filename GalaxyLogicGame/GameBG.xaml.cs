@@ -151,9 +151,9 @@ namespace GalaxyLogicGame.Mobile
                 lostScreenButton.IsVisible = true;
 
                 await Task.WhenAll(
-                    lostScreen.FadeTo(1, 500),
-                    lostScreenText.FadeTo(1, 500),
-                    lostScreenButton.FadeTo(1, 500));
+                    lostScreen.FadeToAsync(1, 500),
+                    lostScreenText.FadeToAsync(1, 500),
+                    lostScreenButton.FadeToAsync(1, 500));
 
 
                 // saving a Highscore
@@ -347,11 +347,11 @@ namespace GalaxyLogicGame.Mobile
 
             // animation
             if (visibility) await Task.WhenAll(
-               powerupArrows.FadeTo(1, 500),
-               scoreLabel.FadeTo(0, 500));
+               powerupArrows.FadeToAsync(1, 500),
+               scoreLabel.FadeToAsync(0, 500));
             else await Task.WhenAll(
-                powerupArrows.FadeTo(0, 500),
-               scoreLabel.FadeTo(1, 500));
+                powerupArrows.FadeToAsync(0, 500),
+               scoreLabel.FadeToAsync(1, 500));
             */
 
         }

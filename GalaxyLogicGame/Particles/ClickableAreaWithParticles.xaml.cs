@@ -59,7 +59,7 @@ namespace GalaxyLogicGame.Particles
 
             for (int i = 0; i < particles.Length; i++)
             {
-                particles[i].FadeTo(0, (uint)duration);
+                particles[i].FadeToAsync(0, (uint)duration);
             }
             await Task.Delay(duration);
 

@@ -33,7 +33,7 @@ namespace GalaxyLogicGame.Particles
             for (int i = 0; i < parts.Length; i++)
             {
                 int corner = 0; // (case 3)
-                parts[i].BackgroundColor = Color.FromHex("1f1f99");
+                parts[i].BackgroundColor = Color.FromArgb("1f1f99");
                 switch (i)
                 {
                     case 0:
@@ -49,9 +49,9 @@ namespace GalaxyLogicGame.Particles
 
                 Position p = CirclePosition.CalculatePosition(random.Next(0, 90) + corner, random.Next(80, 120));
                 positions[i] = p;
-                parts[i].TranslateTo(p.X, p.Y, 500, Easing.CubicInOut);
-                parts[i].RotateTo(random.Next(-360, 360), 500, Easing.CubicInOut);
-                parts[i].FadeTo(0, 500, Easing.SinOut);
+                parts[i].TranslateToAsync(p.X, p.Y, 500, Easing.CubicInOut);
+                parts[i].RotateToAsync(random.Next(-360, 360), 500, Easing.CubicInOut);
+                parts[i].FadeToAsync(0, 500, Easing.SinOut);
             }
             await Task.Delay(500);
             layout.Children.Remove(this);

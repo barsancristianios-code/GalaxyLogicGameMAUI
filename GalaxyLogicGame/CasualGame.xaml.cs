@@ -327,9 +327,9 @@ namespace GalaxyLogicGame
                 taker.TranslationY = p.Y;
 
                 // second part
-                await taker.ScaleTo(1, (uint)delay); ///
+                await taker.ScaleToAsync(1, (uint)delay); ///
                 //await Task.Delay(delay); /// -------
-                await ((PlanetBase)atoms[index]).ScaleTo(0, (uint)delay / 2); ///
+                await ((PlanetBase)atoms[index]).ScaleToAsync(0, (uint)delay / 2); ///
                 //await Task.Delay(delay); /// -------
                 // */
                 //
@@ -367,8 +367,8 @@ namespace GalaxyLogicGame
 
                 ///
                 await Task.WhenAll(
-                    taker.FadeTo(0, (uint)delay / 2),
-                    newPlanet.ScaleTo(1, (uint)delay / 2));
+                    taker.FadeToAsync(0, (uint)delay / 2),
+                    newPlanet.ScaleToAsync(1, (uint)delay / 2));
                 //await Task.Delay(delay); /// -------
                 // */
 
@@ -376,7 +376,7 @@ namespace GalaxyLogicGame
                 offset = (degre * tempIndex + degreClicked + degre / 2) % 360;
 
                 await MoveAtoms();
-                //await ((Blackhole)blackholes[0]).FadeTo(0, (uint)delay / 2);
+                //await ((Blackhole)blackholes[0]).FadeToAsync(0, (uint)delay / 2);
 
                 blackholes.Clear();
                 blackholeLayout.Children.Clear();
@@ -407,7 +407,7 @@ namespace GalaxyLogicGame
             {
                 //int tempi = (i + tempIndex) % positions.Count;
                 Position p = (Position)positions[i];
-                ((PlanetBase)atoms[i]).TranslateTo(p.X, p.Y, (uint)delay);
+                ((PlanetBase)atoms[i]).TranslateToAsync(p.X, p.Y, (uint)delay);
 
             }
             await Task.Delay(delay + 50); /// -------
@@ -482,7 +482,7 @@ namespace GalaxyLogicGame
                     // /*
 
                     /*
-                    await explodingStar.ScaleTo(0, (uint)delay); ///
+                    await explodingStar.ScaleToAsync(0, (uint)delay); ///
                     SupernovaExplosion supernova = new SupernovaExplosion();
                     supernova.TranslationX = supernovaPosition.X; 
                     supernova.TranslationY = supernovaPosition.Y;
@@ -491,14 +491,14 @@ namespace GalaxyLogicGame
                     stars.Remove((PlanetBase)atoms[i]);
                     await explodingStar.FadeStarBase(starDelay);
 
-                    explodingStar.ScaleTo(distance / 30, (uint)starDelay);
+                    explodingStar.ScaleToAsync(distance / 30, (uint)starDelay);
                     await Task.WhenAll(                                     ///
-                        ((PlanetBase)atoms[low]).FadeTo(0, (uint)starDelay),
-                        ((PlanetBase)atoms[i]).FadeTo(0, (uint)starDelay),
-                        ((PlanetBase)atoms[high]).FadeTo(0, (uint)starDelay));
+                        ((PlanetBase)atoms[low]).FadeToAsync(0, (uint)starDelay),
+                        ((PlanetBase)atoms[i]).FadeToAsync(0, (uint)starDelay),
+                        ((PlanetBase)atoms[high]).FadeToAsync(0, (uint)starDelay));
                     // */ 
 
-                    //await supernova.FadeTo(0, (uint)delay);
+                    //await supernova.FadeToAsync(0, (uint)delay);
                     //particleLayout.Children.Remove(supernova);
 
                     if (((PlanetBase)atoms[low]).Type == 4) debris.Remove((Debris)atoms[low]);
@@ -606,13 +606,13 @@ namespace GalaxyLogicGame
                                     atomsLayout.Children.Add((PlanetBase)atoms[i]);
 
                                     await Task.WhenAll(
-                                        ((PlanetBase)atoms[low]).TranslateTo(x, y, (uint)delay, Easing.SinIn),
-                                        ((PlanetBase)atoms[high]).TranslateTo(x, y, (uint)delay, Easing.SinIn),
+                                        ((PlanetBase)atoms[low]).TranslateToAsync(x, y, (uint)delay, Easing.SinIn),
+                                        ((PlanetBase)atoms[high]).TranslateToAsync(x, y, (uint)delay, Easing.SinIn),
                                         Task.Run(async () => {
                                             await Task.Delay((int)(delay / 1.25));
-                                            await ((PlanetBase)atoms[i]).ScaleTo(1.2 * Math.Pow(1.1, atomBonus), (uint)(delay / (4 * Math.Pow(1.25, atomBonus))), Easing.SinIn);
-                                            particles.ScaleTo(1.2 * Math.Pow(1.1, atomBonus), (uint)(delay / (4 * Math.Pow(1.25, atomBonus))), Easing.SinIn);
-                                            await ((PlanetBase)atoms[i]).ScaleTo(1, (uint)delay / 2, Easing.SinOut);
+                                            await ((PlanetBase)atoms[i]).ScaleToAsync(1.2 * Math.Pow(1.1, atomBonus), (uint)(delay / (4 * Math.Pow(1.25, atomBonus))), Easing.SinIn);
+                                            particles.ScaleToAsync(1.2 * Math.Pow(1.1, atomBonus), (uint)(delay / (4 * Math.Pow(1.25, atomBonus))), Easing.SinIn);
+                                            await ((PlanetBase)atoms[i]).ScaleToAsync(1, (uint)delay / 2, Easing.SinOut);
                                         }));
                                     // */
                                     await Task.Delay(30); // optional - to make things look more fluid

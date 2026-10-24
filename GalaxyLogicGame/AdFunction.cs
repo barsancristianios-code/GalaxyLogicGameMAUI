@@ -14,7 +14,7 @@ namespace GalaxyLogicGame
         {
             AbsoluteLayout mainLayout = new AbsoluteLayout
             {
-                BackgroundColor = Color.FromHex("88000000"),
+                BackgroundColor = Color.FromArgb("88000000"),
                 Opacity = 0,
             };
             var image = new Image
@@ -23,7 +23,7 @@ namespace GalaxyLogicGame
                 Aspect = Aspect.AspectFit,
                 GestureRecognizers = {
                     new TapGestureRecognizer { Command = new Command(async() => {
-                        await mainLayout.FadeTo(0, 250);
+                        await mainLayout.FadeToAsync(0, 250);
                         layout.Children.Remove(mainLayout);
                         layout.IsVisible = false;
                     }), }
@@ -37,7 +37,7 @@ namespace GalaxyLogicGame
             layout.Children.Add(mainLayout);
             AbsoluteLayout.SetLayoutBounds(mainLayout, new Rect(0.5, 0.5, 1, 1));
             AbsoluteLayout.SetLayoutFlags(mainLayout, AbsoluteLayoutFlags.All);
-            await mainLayout.FadeTo(1, 250);
+            await mainLayout.FadeToAsync(1, 250);
         }
     }
 }

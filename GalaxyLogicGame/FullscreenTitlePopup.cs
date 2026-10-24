@@ -14,7 +14,7 @@ namespace GalaxyLogicGame
         {
             AbsoluteLayout layout = new AbsoluteLayout
             {
-                BackgroundColor = Color.FromHex("88000000"),
+                BackgroundColor = Color.FromArgb("88000000"),
                 Opacity = 0,
             };
             Label title = new Label
@@ -33,9 +33,9 @@ namespace GalaxyLogicGame
             AbsoluteLayout.SetLayoutBounds(layout, new Rect(0.5, 0.5, 1, 1));
             AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
 
-            await layout.FadeTo(1, 500);
+            await layout.FadeToAsync(1, 500);
             await Task.Delay(1500);
-            await layout.FadeTo(0, 500);
+            await layout.FadeToAsync(0, 500);
 
             mainLayout.Children.Remove(layout);
         }

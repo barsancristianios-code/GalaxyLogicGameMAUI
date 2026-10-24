@@ -12,7 +12,7 @@ namespace GalaxyLogicGame.Particles
 
     public partial class TransitionIn : AbsoluteLayout
     {
-        private Color[] c = { Color.FromHex("00006B"), Color.FromHex("00006B"), /*Color.Purple*/ };
+        private Color[] c = { Color.FromArgb("00006B"), Color.FromArgb("00006B"), /*Color.Purple*/ };
         private View[] layers = new View[4];
         AbsoluteLayout layout;
         public TransitionIn()
@@ -67,7 +67,7 @@ namespace GalaxyLogicGame.Particles
             AbsoluteLayout finalLayer = new AbsoluteLayout
             {
                 BackgroundColor = Color.FromArgb("000"),
-                //BackgroundColor = Color.FromHex("2f2f2f"),
+                //BackgroundColor = Color.FromArgb("2f2f2f"),
                 Rotation = 30,
                 TranslationX = -offset,
                 TranslationY = -offset,
@@ -81,11 +81,11 @@ namespace GalaxyLogicGame.Particles
             AbsoluteLayout.SetLayoutFlags(finalLayer, AbsoluteLayoutFlags.All);
             for (int i = 0; i < layers.Count() - 1; i++)
             {
-                layers[i].TranslateTo(0, 0, (uint)delay);
+                layers[i].TranslateToAsync(0, 0, (uint)delay);
                 await Task.Delay(delay / 3);
             }
-            layers[layers.Count() - 1].TranslateTo(0, 0, (uint)delay);
-            logo.TranslateTo(0, 0, (uint)delay);
+            layers[layers.Count() - 1].TranslateToAsync(0, 0, (uint)delay);
+            logo.TranslateToAsync(0, 0, (uint)delay);
             await Task.Delay(delay + 50);
             
             

@@ -100,13 +100,13 @@ namespace GalaxyLogicGame.Events
 
 
                         await Task.WhenAll(
-                            ((PlanetBase)game.Atoms[i]).TranslateTo(x, y, (uint)game.Delay, Easing.SinIn),
-                            ((PlanetBase)game.Atoms[j]).TranslateTo(x, y, (uint)game.Delay, Easing.SinIn),
+                            ((PlanetBase)game.Atoms[i]).TranslateToAsync(x, y, (uint)game.Delay, Easing.SinIn),
+                            ((PlanetBase)game.Atoms[j]).TranslateToAsync(x, y, (uint)game.Delay, Easing.SinIn),
                             Task.Run(async () => {
                                 await Task.Delay((int)(game.Delay / 1.25));
-                                await ((PlanetBase)game.Atoms[plusIndex]).ScaleTo(1.2 * Math.Pow(1.1, 1), (uint)(game.Delay / (4 * Math.Pow(1.25, 1))), Easing.SinIn);
-                                particles.ScaleTo(1.2 * Math.Pow(1.1, 1), (uint)(game.Delay / (4 * Math.Pow(1.25, 1))), Easing.SinIn);
-                                await ((PlanetBase)game.Atoms[plusIndex]).ScaleTo(1, (uint)game.Delay / 2, Easing.SinOut);
+                                await ((PlanetBase)game.Atoms[plusIndex]).ScaleToAsync(1.2 * Math.Pow(1.1, 1), (uint)(game.Delay / (4 * Math.Pow(1.25, 1))), Easing.SinIn);
+                                particles.ScaleToAsync(1.2 * Math.Pow(1.1, 1), (uint)(game.Delay / (4 * Math.Pow(1.25, 1))), Easing.SinIn);
+                                await ((PlanetBase)game.Atoms[plusIndex]).ScaleToAsync(1, (uint)game.Delay / 2, Easing.SinOut);
                             }));
                         // */
                         game.AtomsLayout.Children.Remove((PlanetBase)game.Atoms[j]);
@@ -136,7 +136,7 @@ namespace GalaxyLogicGame.Events
             GoHere:
 
             await Task.Delay(500);
-            await this.FadeTo(0, 500);
+            await this.FadeToAsync(0, 500);
             game.BG.HideAllEvents();
         }
         public bool EventHappening { get => false; }

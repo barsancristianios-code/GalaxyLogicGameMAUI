@@ -68,7 +68,7 @@ namespace GalaxyLogicGame.Mobile
             starsLayout.Children.Add(stars);
 
             SizeChanged += OnDisplaySizeChanged;
-            //buttonsLayout.TranslateTo(0, 0, 500, Easing.SinOut);
+            //buttonsLayout.TranslateToAsync(0, 0, 500, Easing.SinOut);
 
             //if (!Preferences.Get("experimental", false)) highscoreLabel.Text = "Highscore: " + Preferences.Get(HIGHSCORE, 0);
             //else highscoreLabel.Text = "Experimental mode";
@@ -161,7 +161,7 @@ namespace GalaxyLogicGame.Mobile
         async void OnTutorialClicked(object sender, EventArgs args)
         {
             //CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-1496107080258172/2983887804");
-            await NavigateToGame(new GameBG(Color.FromHex("222")), new TutorialPlacingPlanets());
+            await NavigateToGame(new GameBG(Color.FromArgb("222")), new TutorialPlacingPlanets());
         }
         
         async void OnCustomModeClicked(object sender, EventArgs args)
@@ -225,10 +225,10 @@ namespace GalaxyLogicGame.Mobile
             await Task.WhenAll(
                 this.stars.TransitionUpIn(),
 
-                mainLayout.TranslateTo(0, -360 * ratio, 500, Easing.SinIn),
+                mainLayout.TranslateToAsync(0, -360 * ratio, 500, Easing.SinIn),
 
-                //wallpaper.TranslateTo(0, -180, 500, Easing.SinIn),
-                wallpaper.FadeTo(0, 500, Easing.SinIn));
+                //wallpaper.TranslateToAsync(0, -180, 500, Easing.SinIn),
+                wallpaper.FadeToAsync(0, 500, Easing.SinIn));
 
             starsLayout.Children.Remove(this.stars);
             page.AssingStars(stars);
@@ -249,12 +249,12 @@ namespace GalaxyLogicGame.Mobile
 
             await Task.WhenAll(
                 stars.TransitionUpOut(),
-                wallpaper.TranslateTo(0, 0, 500, Easing.SinOut),
-                wallpaper.FadeTo(1, 500, Easing.SinOut));
+                wallpaper.TranslateToAsync(0, 0, 500, Easing.SinOut),
+                wallpaper.FadeToAsync(1, 500, Easing.SinOut));
             for (int i = 0; i < buttonsArray.Length; i++)
             {
-                buttonsArray[i].TranslateTo(0, 0, 500, Easing.SpringOut);
-                buttonsArray[i].FadeTo(1, 500, Easing.SinIn);
+                buttonsArray[i].TranslateToAsync(0, 0, 500, Easing.SpringOut);
+                buttonsArray[i].FadeToAsync(1, 500, Easing.SinIn);
                 await Task.Delay(150);
             }
             await Task.Delay(350);

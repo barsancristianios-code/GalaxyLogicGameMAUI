@@ -57,10 +57,10 @@ namespace GalaxyLogicGame.Mobile
 
                 Task.Run(async () => {
                     await Task.Delay(500);
-                    await tutorialButtonsLayout.TranslateTo(0, 0, 500, Easing.SpringOut);
+                    await tutorialButtonsLayout.TranslateToAsync(0, 0, 500, Easing.SpringOut);
                 });*/
 
-                //NavigateToGame(new GameBG(Color.FromHex("222")), new TutorialPlacingPlanets());
+                //NavigateToGame(new GameBG(Color.FromArgb("222")), new TutorialPlacingPlanets());
             }
             else
             {
@@ -84,7 +84,7 @@ namespace GalaxyLogicGame.Mobile
             Random random = new Random();
             await Task.Delay(2000);
             astronaut.Rotation = random.Next(360);
-            await astronaut.TranslateTo(-210, -60, 10000);
+            await astronaut.TranslateToAsync(-210, -60, 10000);
         }
         private async void OnShowMoreClicked(object sender, EventArgs e)
         {
@@ -96,10 +96,10 @@ namespace GalaxyLogicGame.Mobile
             await Task.WhenAll(
                 stars.TransitionUpIn(),
 
-                mainLayout.TranslateTo(0, -360 * ratio * mainLayout.Scale, 500, Easing.SinIn),
-                stars.TranslateTo(0, 360 * ratio, 500, Easing.SinIn),
-                //wallpaper.TranslateTo(0, -180, 500, Easing.SinIn),
-                wallpaper.FadeTo(0, 500, Easing.SinIn));
+                mainLayout.TranslateToAsync(0, -360 * ratio * mainLayout.Scale, 500, Easing.SinIn),
+                stars.TranslateToAsync(0, 360 * ratio, 500, Easing.SinIn),
+                //wallpaper.TranslateToAsync(0, -180, 500, Easing.SinIn),
+                wallpaper.FadeToAsync(0, 500, Easing.SinIn));
             LongMainPage mainPage = new LongMainPage(stars);
             stars.TranslationY = 0;
             await Navigation.PushAsync(mainPage, false);
@@ -119,21 +119,21 @@ namespace GalaxyLogicGame.Mobile
 
         private async void TranslateTest(object sender, EventArgs e)
         {
-            await mainLayout.TranslateTo(0, -500, 500);
-            await mainLayout.TranslateTo(0, 0, 500);
+            await mainLayout.TranslateToAsync(0, -500, 500);
+            await mainLayout.TranslateToAsync(0, 0, 500);
 
         }
         private async void OnViewTutorialClicked(object sender, EventArgs e)
         {
             //CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-1496107080258172/2983887804");
             tutorialLayout.IsVisible = false;
-            await NavigateToGame(new GameBG(Color.FromHex("222")), new TutorialPlacingPlanets());
+            await NavigateToGame(new GameBG(Color.FromArgb("222")), new TutorialPlacingPlanets());
 
         }
         private async void OnSkipTutorialClicked(object sender, EventArgs e)
         {
             Preferences.Set("tutorialCompleted", true);
-            await tutorialLayout.FadeTo(0, 500);
+            await tutorialLayout.FadeToAsync(0, 500);
             tutorialLayout.IsVisible = false;
         }
         private async Task NavigateToGame(GameBG gameBG, CasualGame game)

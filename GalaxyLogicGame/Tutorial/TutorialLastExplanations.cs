@@ -69,7 +69,7 @@ namespace GalaxyLogicGame.Tutorial
             };
             AbsoluteLayout tempLayout = new AbsoluteLayout
             {
-                BackgroundColor = Color.FromHex("88000000"),
+                BackgroundColor = Color.FromArgb("88000000"),
                 Opacity = 0,
             };
             tempLayout.Children.Add(label);
@@ -86,7 +86,7 @@ namespace GalaxyLogicGame.Tutorial
                     if (Clicked)
                     {
                         Clicked = false;
-                        await tempLayout.FadeTo(0, 500);
+                        await tempLayout.FadeToAsync(0, 500);
                         tempLayout.IsVisible = false;
                         BG.TutorialLayout.Children.Remove(tempLayout);
                         
@@ -98,7 +98,7 @@ namespace GalaxyLogicGame.Tutorial
             });
 
             await Task.Delay(500);
-            await tempLayout.FadeTo(1, 250);
+            await tempLayout.FadeToAsync(1, 250);
 
         }
     }

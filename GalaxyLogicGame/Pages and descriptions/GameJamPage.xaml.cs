@@ -1,4 +1,4 @@
-using GalaxyLogicGame.Particles;
+﻿using GalaxyLogicGame.Particles;
 
 namespace GalaxyLogicGame.Pages_and_descriptions;
 
@@ -26,11 +26,11 @@ public partial class GameJamPage : ContentPage, IStarsPage
     public async Task TransitionIn()
     {
         await Task.WhenAll(
-            this.TranslateTo(0, 0, 500, Easing.SinOut),
-            this.FadeTo(1, 500, Easing.SinOut),
+            this.TranslateToAsync(0, 0, 500, Easing.SinOut),
+            this.FadeToAsync(1, 500, Easing.SinOut),
             stars.TransitionUpOut(),
-            mainLayout.TranslateTo(0, 0, 500, Easing.SinOut),
-            mainLayout.FadeTo(1, 500));
+            mainLayout.TranslateToAsync(0, 0, 500, Easing.SinOut),
+            mainLayout.FadeToAsync(1, 500));
 
         starsLayout.Children.Clear();
     }

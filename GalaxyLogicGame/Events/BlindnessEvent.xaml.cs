@@ -66,13 +66,13 @@ namespace GalaxyLogicGame.Events
             blindPlanets.TranslationX = -p.X;
             blindPlanets.TranslationY = -p.Y;
 
-            await blindness.FadeTo(1, 500);
+            await blindness.FadeToAsync(1, 500);
             await Update(game);
         }
 
         public async Task Update(GameWithEvents game)
         {
-            await blindPlanets.FadeTo(0, 500);
+            await blindPlanets.FadeToAsync(0, 500);
             blindPlanets.Children.Clear();
             ArrayList positions = CirclePosition.GetCirclePositionsOffset(game.Atoms.Count, game.Offset);
 
@@ -95,14 +95,14 @@ namespace GalaxyLogicGame.Events
 
             }
 
-            await blindPlanets.FadeTo(1, 500);
+            await blindPlanets.FadeToAsync(1, 500);
 
         }
 
 
         public async Task Disappear()
         {
-            await blindness.FadeTo(0, 500);
+            await blindness.FadeToAsync(0, 500);
             game.BlindnessLayout.Children.Clear();
             game.Blindness = null;
             game.EventObject = null;

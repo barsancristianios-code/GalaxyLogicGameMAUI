@@ -37,15 +37,15 @@ namespace GalaxyLogicGame.Particles
                 AbsoluteLayout.SetLayoutFlags(particle, AbsoluteLayoutFlags.PositionProportional);
 
                 Position p = CirclePosition.CalculatePosition(CirclePosition.ConvertDegreToRadian(random.Next(360)), random.Next(30, 60));
-                particle.FadeTo(1, (uint)duration);
-                particle.TranslateTo(p.X, p.Y, (uint)duration, Easing.SinOut);
-                particle.RotateTo(random.Next(-360, 360), (uint)duration, Easing.SinOut);
+                particle.FadeToAsync(1, (uint)duration);
+                particle.TranslateToAsync(p.X, p.Y, (uint)duration, Easing.SinOut);
+                particle.RotateToAsync(random.Next(-360, 360), (uint)duration, Easing.SinOut);
             }
             await Task.Delay(duration + delay);
 
             for (int i = 0; i < particles.Length; i++)
             {
-                particles[i].FadeTo(0, (uint)duration * 2);
+                particles[i].FadeToAsync(0, (uint)duration * 2);
             }
 
             await Task.Delay(duration * 2);

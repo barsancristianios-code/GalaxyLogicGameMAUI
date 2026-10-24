@@ -34,10 +34,10 @@ namespace GalaxyLogicGame.Tutorial
             // something more
             await Task.WhenAll(
                 Functions.EventTitleAnimation(eventTitle, eventIcon)
-                /*,choiceLayout.FadeTo(0.5, 500)*/
-                , darken.FadeTo(1, 500));
+                /*,choiceLayout.FadeToAsync(0.5, 500)*/
+                , darken.FadeToAsync(1, 500));
 
-            await choiceLayout.FadeTo(1, 500);
+            await choiceLayout.FadeToAsync(1, 500);
 
             // 3 random planets
             for (int i = 0; i < 3; i++)
@@ -81,7 +81,7 @@ namespace GalaxyLogicGame.Tutorial
                 planetsChoice[i] = planet;
                 choiceLayout.Children.Add(planet);
 
-                planet.TranslateTo((i - 1) * offsetBetweenPlanets, 0, 500, Easing.SpringOut);
+                planet.TranslateToAsync((i - 1) * offsetBetweenPlanets, 0, 500, Easing.SpringOut);
                 await Task.Delay(200);                
             }
             await Task.Delay(350);
@@ -97,8 +97,8 @@ namespace GalaxyLogicGame.Tutorial
                 game.NewPlanet = planetsChoice[index];
                 choiceLayout.Children.Remove(planetsChoice[index]);
                 game.AtomsLayout.Children.Add(planetsChoice[index]);
-                await mainLayout.FadeTo(0, 500);
-                await planetsChoice[index].TranslateTo(0, 0, 250);
+                await mainLayout.FadeToAsync(0, 500);
+                await planetsChoice[index].TranslateToAsync(0, 0, 250);
 
                 game.BG.HideAllEvents();
 

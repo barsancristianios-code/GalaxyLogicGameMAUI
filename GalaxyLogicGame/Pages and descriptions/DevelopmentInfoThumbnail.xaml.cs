@@ -75,7 +75,7 @@ namespace GalaxyLogicGame.Pages_and_descriptions
                 ThirdText = text3,
             };
             await Navigation.PushAsync(page);
-            if (Device.RuntimePlatform != Device.Tizen) page.ScaleToScreen();
+            if (DeviceInfo.Platform != DevicePlatform.Tizen) page.ScaleToScreen();
         }
     }
 }

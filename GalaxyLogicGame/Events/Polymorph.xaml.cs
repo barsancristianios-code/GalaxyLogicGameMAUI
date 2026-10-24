@@ -58,17 +58,17 @@ namespace GalaxyLogicGame.Events
 
             await Task.WhenAll(
                 Functions.EventTitleAnimation(eventTitle, eventIcon)
-                /*,choiceLayout.FadeTo(0.5, 500)*/
-                , darken.FadeTo(1, 500));
+                /*,choiceLayout.FadeToAsync(0.5, 500)*/
+                , darken.FadeToAsync(1, 500));
 
             game.BG.HideAllEvents();
             game.BG.LowerEventLayout.Children.Add(mainLayout);
 
-            await choiceLayout.FadeTo(1, 500);
+            await choiceLayout.FadeToAsync(1, 500);
 
             chosenIndex = random.Next(game.Atoms.Count);
 
-            await ((PlanetBase)game.Atoms[chosenIndex]).TranslateTo(0, 0, 250);
+            await ((PlanetBase)game.Atoms[chosenIndex]).TranslateToAsync(0, 0, 250);
 
             //((Planet)game.Atoms[chosenIndex]).BGColor = Color.Gray;
             //((Planet)game.Atoms[chosenIndex]).Text = " ";
@@ -120,13 +120,13 @@ namespace GalaxyLogicGame.Events
 
 
                 await Task.WhenAll(
-                    ((PlanetBase)game.Atoms[index]).ScaleTo(1.2, 50, Easing.SinIn),
+                    ((PlanetBase)game.Atoms[index]).ScaleToAsync(1.2, 50, Easing.SinIn),
                     game.PolyParticle.Stop(50));
 
                 game.AtomsLayout.Children.Remove(game.PolyParticle);
                 game.PolyParticle = null;
-                ((PlanetBase)game.Atoms[chosenIndex]).ScaleTo(1, 250, Easing.SinOut);
-                ((PlanetBase)game.Atoms[index]).ScaleTo(1, 125, Easing.SinOut);
+                ((PlanetBase)game.Atoms[chosenIndex]).ScaleToAsync(1, 250, Easing.SinOut);
+                ((PlanetBase)game.Atoms[index]).ScaleToAsync(1, 125, Easing.SinOut);
 
 
 
@@ -148,8 +148,8 @@ namespace GalaxyLogicGame.Events
                     AbsoluteLayout.SetLayoutBounds(particle, new Rect(0.5, 0.5, size, size));
                     AbsoluteLayout.SetLayoutFlags(particle, AbsoluteLayoutFlags.PositionProportional);
                     particles[i] = particle;
-                    particle.TranslateTo(0, 0, 250);
-                    //particle.RotateTo(random.Next(-360, 360), 250);
+                    particle.TranslateToAsync(0, 0, 250);
+                    //particle.RotateToAsync(random.Next(-360, 360), 250);
                     await Task.Delay(30);
                 }
 
@@ -164,10 +164,10 @@ namespace GalaxyLogicGame.Events
 
                 game.UpdateShrinkingGiantsArray();
 
-                await ((Planet)game.Atoms[chosenIndex]).ScaleTo(1.2, 50, Easing.SpringOut);
-                await ((Planet)game.Atoms[chosenIndex]).ScaleTo(1.35, 50, Easing.SpringOut);
-                await ((Planet)game.Atoms[chosenIndex]).ScaleTo(1.45, 50, Easing.SpringOut);
-                await ((Planet)game.Atoms[chosenIndex]).ScaleTo(1, 150, Easing.SinIn);
+                await ((Planet)game.Atoms[chosenIndex]).ScaleToAsync(1.2, 50, Easing.SpringOut);
+                await ((Planet)game.Atoms[chosenIndex]).ScaleToAsync(1.35, 50, Easing.SpringOut);
+                await ((Planet)game.Atoms[chosenIndex]).ScaleToAsync(1.45, 50, Easing.SpringOut);
+                await ((Planet)game.Atoms[chosenIndex]).ScaleToAsync(1, 150, Easing.SinIn);
 
 
                 for (int i = 0; i < particles.Length; i++)
@@ -176,7 +176,7 @@ namespace GalaxyLogicGame.Events
                 }
 
                 await Task.WhenAll(
-                    mainLayout.FadeTo(0, 500),
+                    mainLayout.FadeToAsync(0, 500),
                     game.MoveAtoms());
 
 

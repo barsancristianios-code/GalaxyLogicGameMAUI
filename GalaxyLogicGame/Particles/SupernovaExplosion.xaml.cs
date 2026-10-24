@@ -20,7 +20,7 @@ namespace GalaxyLogicGame.Particles
             layout.Children.Add(mainLayout);
 
 
-            lensFlare.ScaleTo(scale / 90, (uint)duration);
+            lensFlare.ScaleToAsync(scale / 90, (uint)duration);
             for (int i = 3; i > 0; i--)
             {
                 SupernovaExplosionParticles particles = new SupernovaExplosionParticles { Scale = ( scale / 30) / i };
@@ -29,7 +29,7 @@ namespace GalaxyLogicGame.Particles
 
                 await Task.Delay(duration / 3);
             }
-            lensFlare.FadeTo(0, (uint)duration);
+            lensFlare.FadeToAsync(0, (uint)duration);
         }
     }
 }

@@ -20,13 +20,13 @@ namespace GalaxyLogicGame
         {
             InitializeComponent();
 
-            if (true)//(Device.RuntimePlatform == Device.Tizen)
+            if (true)//(DeviceInfo.Platform == DevicePlatform.Tizen)
             {
-                bg = new ButtonBG { CornerRadius = 30, BackgroundColor = Color.FromHex("2f2f2f"), };
+                bg = new ButtonBG { CornerRadius = 30, BackgroundColor = Color.FromArgb("2f2f2f"), };
             }
             else
             {
-                bg = new BoxViewBG { CornerRadius = 30, BackgroundColor = Color.FromHex("2f2f2f"), };
+                bg = new BoxViewBG { CornerRadius = 30, BackgroundColor = Color.FromArgb("2f2f2f"), };
             }
             mainLayout.Children.Insert(0, (View)bg);
             AbsoluteLayout.SetLayoutBounds((View)bg, new Rect(0, 0, 1, 1));

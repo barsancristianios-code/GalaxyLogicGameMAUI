@@ -12,7 +12,7 @@ namespace GalaxyLogicGame.Particles
 
     public partial class TransitionOut : AbsoluteLayout
     {
-        Color[] c = { Color.FromHex("00006B"), Color.FromHex("00006B"), Color.FromArgb("7800b0") };
+        Color[] c = { Color.FromArgb("00006B"), Color.FromArgb("00006B"), Color.FromArgb("7800b0") };
         private View[] layers = new View[4];
         private Image logo;
         AbsoluteLayout layout;
@@ -50,7 +50,7 @@ namespace GalaxyLogicGame.Particles
             View finalLayer = new AbsoluteLayout
             {
                 BackgroundColor = Color.FromArgb("000"),
-                //BackgroundColor = Color.FromHex("2f2f2f"),
+                //BackgroundColor = Color.FromArgb("2f2f2f"),
                 Rotation = 45,
                 TranslationX = 0,
                 TranslationY = 0,
@@ -65,13 +65,13 @@ namespace GalaxyLogicGame.Particles
 
         public async Task Play(int delay)
         {
-            layers[layers.Count() - 1].TranslateTo(360, 360, (uint)delay);
-            logo.TranslateTo(-360, 0, (uint)delay);
+            layers[layers.Count() - 1].TranslateToAsync(360, 360, (uint)delay);
+            logo.TranslateToAsync(-360, 0, (uint)delay);
             await Task.Delay(delay / 3);
 
             for (int i = layers.Count() - 2; i >= 0; i--)
             {
-                layers[i].TranslateTo(360, 360, (uint)delay);
+                layers[i].TranslateToAsync(360, 360, (uint)delay);
                 if (i > 0) await Task.Delay(delay / 3);
             }
             

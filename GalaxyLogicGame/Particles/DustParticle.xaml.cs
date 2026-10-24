@@ -30,9 +30,9 @@ namespace GalaxyLogicGame.Particles
             this.TranslationY = random.Next(60);
             dust.TranslationX = 30;
             if (dust.Opacity != 0) dust.Opacity = 0;
-            await Task.WhenAny(dust.FadeTo(0.5, 1500),
-                dust.TranslateTo(0, 0, 3000));
-            await dust.FadeTo(0, 1500);
+            await Task.WhenAny(dust.FadeToAsync(0.5, 1500),
+                dust.TranslateToAsync(0, 0, 3000));
+            await dust.FadeToAsync(0, 1500);
         }
     }
 }

@@ -36,14 +36,14 @@ namespace GalaxyLogicGame
                 particle.Rotation = random.Next(-360, 360);
 
                 if (particle.Rotation < -120) particle.BackgroundColor = Color.FromArgb("fff");
-                else particle.BackgroundColor = Color.FromHex("7800b0");
+                else particle.BackgroundColor = Color.FromArgb("7800b0");
                 // more colors
 
                 particle.TranslationX = p.X;
                 particle.TranslationY = p.Y;
-                particle.TranslateTo(0, 0, (uint)duration * 2, Easing.SinOut);
-                particle.RotateTo(random.Next(-360, 360), (uint)duration, Easing.SinOut);
-                particle.FadeTo(0, (uint)duration, Easing.SinIn);
+                particle.TranslateToAsync(0, 0, (uint)duration * 2, Easing.SinOut);
+                particle.RotateToAsync(random.Next(-360, 360), (uint)duration, Easing.SinOut);
+                particle.FadeToAsync(0, (uint)duration, Easing.SinIn);
 
             }
             await Task.Delay(duration);

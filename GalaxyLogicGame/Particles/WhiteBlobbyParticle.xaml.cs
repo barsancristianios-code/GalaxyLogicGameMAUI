@@ -57,7 +57,7 @@ namespace GalaxyLogicGame
         {
             playing = false;
 
-            await particles[0].FadeTo(0, (uint)duration);
+            await particles[0].FadeToAsync(0, (uint)duration);
             mainLayout.Children.Remove(particles[0]);
         }
 

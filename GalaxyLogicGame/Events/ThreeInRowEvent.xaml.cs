@@ -64,7 +64,7 @@ namespace GalaxyLogicGame.Events
         public async Task Disappear()
         {
 
-            await mainLayout.FadeTo(0, 250);
+            await mainLayout.FadeToAsync(0, 250);
             game.BlindnessLayout.Children.Remove(mainLayout);
             game.TIR = null;
             game.EventObject = null;

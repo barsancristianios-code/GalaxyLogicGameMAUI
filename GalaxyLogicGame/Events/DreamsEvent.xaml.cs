@@ -61,9 +61,9 @@ namespace GalaxyLogicGame.Events
             game.EventObject = this;
             Random random = new Random();
 
-            if (Device.RuntimePlatform == Device.Tizen) { 
+            if (DeviceInfo.Platform == DevicePlatform.Tizen) { 
                 game.BG.BackgroundLayout.Children.Add(dreamsBG);
-                dreamsBG.FadeTo(1, 500);
+                dreamsBG.FadeToAsync(1, 500);
             }
                 
             else game.BG.ShowEvent(this);
@@ -104,8 +104,8 @@ namespace GalaxyLogicGame.Events
             }
 
             await Task.WhenAll(
-                this.FadeTo(0, 250),
-                dreamsBG.FadeTo(0, 500));
+                this.FadeToAsync(0, 250),
+                dreamsBG.FadeToAsync(0, 500));
             game.BlindnessLayout.Children.Remove(this);
             game.EventObject = null;
             game.BG.BackgroundLayout.Children.Remove(dreamsBG);
